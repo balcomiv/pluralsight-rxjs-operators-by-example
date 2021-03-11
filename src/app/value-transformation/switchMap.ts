@@ -56,9 +56,16 @@ setTimeout(() => {
     );
 }, 1000);
 
-//  Non-deprecated Version
-//  Just to delay example
+/**
+ * Switch and combine values from 2 sources
+ * A is emitted from source. switchMap then subscribes
+ * to the timer. Timer emits values at 0 and 150ms, which
+ * are combined with A and emitted.
+ * Source emits B at 200ms, so the timer set up by A stops,
+ * and the B value emission kicks off a new timer.
+ */
 setTimeout(() => {
+  //  Non-deprecated Version
   character
     .pipe(
       switchMap((char) => {
@@ -74,3 +81,15 @@ setTimeout(() => {
       () => console.log('complete')
     );
 }, 2000);
+
+/*
+  Val: A0 ​​​​​
+  Val: A1 ​​​​​
+  Val: B0 ​​​​​
+  Val: B1 ​​​​​
+  Val: B2 ​​​​​
+  complete ​​​​​
+*/
+
+// Demonstrating false positive on deprecation
+// interval(1000).subscribe((value) => console.log('Interval Test: ', value)); // deprecation reported here
