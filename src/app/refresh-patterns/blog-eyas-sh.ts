@@ -2,6 +2,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { BehaviorSubject, combineLatest, interval, of, timer } from 'rxjs';
 import { map, startWith, switchMap, take, tap } from 'rxjs/operators';
 
+/**
+ * Blog Link: https://blog.eyas.sh/2018/12/data-and-page-content-refresh-patterns-in-angular/
+ */
+
 const TASK_REFRESH_INTERVAL_MS = 1000;
 
 export class TaskComponent {
