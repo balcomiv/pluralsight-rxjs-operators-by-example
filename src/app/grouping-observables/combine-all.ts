@@ -1,6 +1,7 @@
 /**
  * combineAll - for observable of observables
  * combine latest values from multiple observables once all sources have emitted
+ * and emit them as an array
  */
 
 import { interval, of } from 'rxjs';
